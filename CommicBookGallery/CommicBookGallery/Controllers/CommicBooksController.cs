@@ -8,8 +8,16 @@ namespace CommicBookGallery.Controllers
 {
     public class CommicBooksController : Controller
     {
-        public String Detail() {
-            return "hello from the commic book controller"; 
+        public ActionResult Detail()
+        {
+
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Monday)
+            {
+                return Redirect("/");
+            }
+            return Content("Hello from the controller"); 
         }
+                
+        
     }
 }
