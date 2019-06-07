@@ -13,7 +13,7 @@ namespace CommicBookGallery.Controllers
         public ActionResult Detail()
         {
             var commicBook = new CommicBook() {
-                SeriesTitle = "the amazing spriderman",
+                SeriesTitle = "the amazing spider-man",
                 IssueNumber = 700, 
                 DescriptionHtml = "<p>Final Issue! Witness the final hour </p>",
                 Artists = new Artist[] 
