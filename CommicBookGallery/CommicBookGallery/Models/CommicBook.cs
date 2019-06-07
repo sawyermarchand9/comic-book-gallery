@@ -13,5 +13,22 @@ namespace CommicBookGallery.Models
         public string DescriptionHtml { get; set; }
         public Artist[] Artists { get; set; }
         public bool favorite { get; set; }
+
+        public string DisplayText
+        {
+            get
+            {
+                return SeriesTitle + " #" + IssueNumber;
+            }
+            
+        }
+        // series-title-issuenumber
+        public string CoverImageFileName
+        {
+            get
+            {
+                return SeriesTitle.Replace("", "-").ToLower() + "-" + IssueNumber + ".jpg";
+            }
+        }
     }
 }
