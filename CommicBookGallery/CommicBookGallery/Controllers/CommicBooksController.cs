@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CommicBookGallery.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc; 
+using System.Web.Mvc;
+
 
 namespace CommicBookGallery.Controllers
 {
@@ -10,18 +12,22 @@ namespace CommicBookGallery.Controllers
     {
         public ActionResult Detail()
         {
-            ViewBag.SeriesTitle = "the amazing spriderman";
-            ViewBag.IssueNumber = 700;
-            ViewBag.Description = "<p>Final Issue! Witness the final hour </p>";
-            ViewBag.Artists = new string[]
-            {
-                "Script: Dan Slott",
-                "Pencils: Humberto Ramos",
-                "Colors: Edgar Delgado",
-                "Letters: Chris Eliopouls"
+            var commicBook = new CommicBook() {
+                SeriesTitle = "the amazing spriderman",
+                IssueNumber = 700, 
+                DescriptionHtml = "<p>Final Issue! Witness the final hour </p>",
+                Artists = new Artist[] 
+                {
+                    new Artist() { Name ="Dan Slott", Role="Script"},
+                    new Artist() { Name ="Humberto Ramos", Role="Pencils"},
+                    new Artist() { Name ="Victor Olazaba", Role="Ink"},
+                    new Artist() { Name ="Edgar Delgado", Role="Colors"},
+                    new Artist() { Name ="Chris Eliopouls", Role="Letters"}
 
+                }
             };
-            return View();
+            
+            return View(commicBook);
         }
                 
         
