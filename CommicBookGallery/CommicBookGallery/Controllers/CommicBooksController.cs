@@ -23,7 +23,6 @@ namespace CommicBookGallery.Controllers
                     new Artist() { Name ="Victor Olazaba", Role="Ink"},
                     new Artist() { Name ="Edgar Delgado", Role="Colors"},
                     new Artist() { Name ="Chris Eliopouls", Role="Letters"}
-
                 }
             };
             
