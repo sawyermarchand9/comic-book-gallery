@@ -5,14 +5,14 @@ using System.Web;
 
 namespace CommicBookGallery.Models
 {
-    public class CommicBook
+    public class ComicBook
     {
         public int Id { get; set; }
         public string SeriesTitle { get; set; }
         public int IssueNumber { get; set; }
         public string DescriptionHtml { get; set; }
         public Artist[] Artists { get; set; }
-        public bool favorite { get; set; }
+        public bool Favorite { get; set; }
 
         public string DisplayText
         {
@@ -20,9 +20,9 @@ namespace CommicBookGallery.Models
             {
                 return SeriesTitle + " #" + IssueNumber;
             }
-            
+
         }
-        // series-title-issuenumber
+        // series-title-issuenumber.jpg
         public string CoverImageFileName
         {
             get

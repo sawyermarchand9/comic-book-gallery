@@ -1,4 +1,5 @@
-﻿using CommicBookGallery.Models;
+﻿using CommicBookGallery.Data;
+using CommicBookGallery.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,23 +11,20 @@ namespace CommicBookGallery.Controllers
 {
     public class CommicBooksController : Controller
     {
-        public ActionResult Detail()
+        private CommicBookRepository _comicBookRepository = null;
+
+        public CommicBooksController()
         {
-            var commicBook = new CommicBook() {
-                SeriesTitle = "the amazing spider-man",
-                IssueNumber = 700, 
-                DescriptionHtml = "<p>Final Issue! Witness the final hour </p>",
-                Artists = new Artist[] 
-                {
-                    new Artist() { Name ="Dan Slott", Role="Script"},
-                    new Artist() { Name ="Humberto Ramos", Role="Pencils"},
-                    new Artist() { Name ="Victor Olazaba", Role="Ink"},
-                    new Artist() { Name ="Edgar Delgado", Role="Colors"},
-                    new Artist() { Name ="Chris Eliopouls", Role="Letters"}
-                }
-            };
-            
-            return View(commicBook);
+            _comicBookRepository = new CommicBookRepository();
+        }
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            var comicBook = _comicBookRepository.getCommicBook((int)id); // you can also use a nullable cast
+            return View(comicBook);
         }
                 
         
