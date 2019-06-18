@@ -17,13 +17,18 @@ namespace CommicBookGallery.Controllers
         {
             _comicBookRepository = new CommicBookRepository();
         }
+        public ActionResult Index()
+        {
+            var comicBooks = _comicBookRepository.GetCommicBooks();
+            return View(comicBooks);
+        }
         public ActionResult Detail(int? id)
         {
             if (id == null)
             {
                 return HttpNotFound();
             }
-            var comicBook = _comicBookRepository.getCommicBook((int)id); // you can also use a nullable cast
+            var comicBook = _comicBookRepository.GetCommicBook((int)id); // you can also use a nullable cast
             return View(comicBook);
         }
                 
